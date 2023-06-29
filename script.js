@@ -70,5 +70,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Download the iCal file
         cal.download('pregnancy_schedule');
+
+        // Show success message
+        var successMessage = document.getElementById('success-message');
+        successMessage.style.display = 'block';
+        successMessage.textContent = 'iCal file generated successfully!';
     });
 });
