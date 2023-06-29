@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pregnancy Calendar Generator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Pregnancy Calendar Generator</h1>
+        <form id="pregnancy-form">
+            <div class="form-group">
+                <label for="method">Method:</label>
+                <select id="method" class="form-control">
+                    <option value="last-period">Using Last Period Day</option>
+                    <option value="progress">Using Progress (Week and Day)</option>
+                    <option value="due-date">Using Due Date</option>
+                </select>
+            </div>
+
+            <div id="last-period-fields" class="form-group">
+                <label for="last-period">Last Period Day:</label>
+                <input type="date" id="last-period" class="form-control">
+            </div>
+
+            <div id="progress-fields" class="form-group">
+                <label for="progress-date">Progress Date:</label>
+                <input type="date" id="progress-date" class="form-control">
+                <label for="pregnancy-weeks">Pregnancy Weeks:</label>
+                <input type="number" id="pregnancy-weeks" class="form-control">
+                <label for="pregnancy-days">Pregnancy Days:</label>
+                <input type="number" id="pregnancy-days" class="form-control">
+            </div>
+
+            <div id="due-date-fields" class="form-group">
+                <label for="due-date">Due Date:</label>
+                <input type="date" id="due-date" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="event-duration">Event Duration:</label>
+                <select id="event-duration" class="form-control">
+                    <option value="7">7 Days (Week of Pregnancy)</option>
+                    <option value="1">1 Day (Week and Day of Pregnancy)</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Generate iCal</button>
+        </form>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ics/2.0.0/ics.deps.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
