@@ -1,15 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
   const form = document.getElementById('pregnancy-form');
   const calendarContainer = document.getElementById('calendar-container');
-  const downloadLink = document.getElementById('download-link');
-  const successMessage = document.getElementById('success-message');
+  const downloadButton = document.getElementById('download-button');
 
   form.addEventListener('submit', function(event) {
     event.preventDefault();
-    generateICal();
+    generateCalendar();
   });
 
-  function generateICal() {
+  function generateCalendar() {
     const startDate = document.getElementById('start-date').value;
     const pregnancyWeeks = parseInt(document.getElementById('pregnancy-weeks').value);
     const pregnancyDays = parseInt(document.getElementById('pregnancy-days').value);
@@ -29,17 +28,15 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    const calendarContent = cal.download();
+    const calendarContent = cal.calendar();
     calendarContainer.innerHTML = calendarContent;
     calendarContainer.style.display = 'block';
 
-    const filename = 'pregnancy_schedule.ics';
-    const blob = new Blob([calendarContent], { type: 'text/calendar;charset=utf-8' });
-    const downloadUrl = URL.createObjectURL(blob);
-    downloadLink.href = downloadUrl;
-    downloadLink.setAttribute('download', filename);
-    downloadLink.style.display = 'block';
-
-    successMessage.textContent = 'iCal file generated successfully.';
+    downloadButton.style.display = 'block';
+    downloadButton.addEventListener('click', function() {
+      const filename = 'pregnancy_schedule.ics';
+      const blob = new Blob([calendarContent], { type: 'text/calendar;charset=utf-8' });
+      saveAs(blob, filename);
+    });
   }
 });
