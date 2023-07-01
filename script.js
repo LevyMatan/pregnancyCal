@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const errorMessage = document.getElementById('success-message');
         errorMessage.style.display = 'block';
         errorMessage.textContent = 'Unable to generate iCal file. Please try again later.';
-        console.log('ics library is available');
+        console.log('ics library is NOT available');
 
         // Fallback to ical.js
         loadIcalLibrary();
