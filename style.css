@@ -5,46 +5,32 @@ body {
 }
 
 .container {
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
-  background-color: #ffffff;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  color: #333;
+  text-align: center;
 }
 
-.form-group {
-  margin-bottom: 15px;
+#parameters {
+  margin-bottom: 20px;
 }
 
-.col-form-label {
-  font-weight: bold;
+#parameters div {
+  margin-bottom: 10px;
 }
 
-#calendar-container {
-  margin-top: 20px;
+#calendar {
+  text-align: center;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
+button {
+  display: block;
+  margin-top: 10px;
 }
 
-.btn-primary:hover {
-  background-color: #0069d9;
-  border-color: #0062cc;
-}
-
-.btn-success {
-  background-color: #28a745;
-  border-color: #28a745;
-}
-
-.btn-success:hover {
-  background-color: #218838;
-  border-color: #1e7e34;
+input[type="number"] {
+  width: 50px;
 }
