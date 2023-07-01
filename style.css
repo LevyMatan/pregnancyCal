@@ -1,5 +1,36 @@
 .container {
-    max-width: 400px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-}
+    text-align: center;
+  }
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 10px;
+  }
+
+  button[type="submit"] {
+    display: block;
+    margin: 20px auto;
+  }
+
+  #calendar-container {
+    margin-top: 30px;
+    text-align: left;
+    white-space: pre-wrap;
+  }
+
+  #download-link {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  #success-message {
+    text-align: center;
+    margin-top: 20px;
+  }
