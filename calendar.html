@@ -4,6 +4,8 @@
     <title>Pregnancy Progress Calendar</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
@@ -13,8 +15,8 @@
     <h1>Pregnancy Progress Calendar</h1>
 
     <div class="input-box">
-        <label for="input-option">Select Input Option:</label>
-        <select id="input-option">
+        <label for="input-option" class="form-label">Select Input Option:</label>
+        <select id="input-option" class="form-select">
           <option disabled selected>Select an Option</option>
           <option value="date">Date and Pregnancy Week/Day</option>
           <option value="last-period">Last Period Date</option>
@@ -22,32 +24,33 @@
         </select>
 
         <div id="date-input-fields" class="input-fields">
-          <label for="date-input">Date:</label>
-          <input type="date" id="date-input">
-          <label for="week-input">Pregnancy Week:</label>
-          <input type="number" id="week-input">
-          <label for="day-input">Pregnancy Day:</label>
-          <input type="number" id="day-input">
+          <label for="date-input" class="form-label">Date:</label>
+          <input type="date" id="date-input" class="form-control">
+          <label for="week-input" class="form-label">Pregnancy Week:</label>
+          <input type="number" id="week-input" class="form-control">
+          <label for="day-input" class="form-label">Pregnancy Day:</label>
+          <input type="number" id="day-input" class="form-control">
         </div>
 
         <div id="last-period-input-fields" class="input-fields">
-          <label for="last-period-input">Last Period Date:</label>
-          <input type="date" id="last-period-input">
+          <label for="last-period-input" class="form-label">Last Period Date:</label>
+          <input type="date" id="last-period-input" class="form-control">
         </div>
 
         <div id="due-date-input-fields" class="input-fields">
-          <label for="due-date-input">Due Date:</label>
-          <input type="date" id="due-date-input">
+          <label for="due-date-input" class="form-label">Due Date:</label>
+          <input type="date" id="due-date-input" class="form-control">
         </div>
 
-        <label for="resolution-select">Length of Events:</label>
-        <select id="resolution-select">
+        <label for="resolution-select" class="form-label">Length of Events:</label>
+        <select id="resolution-select" class="form-select">
           <option value="week">Week</option>
           <option value="day">Day</option>
         </select>
 
-        <button id="display-button" disabled>Display Calendar</button>
+        <button id="display-button" class="btn btn-primary" disabled>Display Calendar</button>
       </div>
+
 
 
 
