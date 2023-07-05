@@ -11,24 +11,42 @@
 <body>
     <h1>Pregnancy Progress Calendar</h1>
 
-    <div id="form-container">
-        <label for="date-input">Date:</label>
-        <input type="date" id="date-input" required />
+    <div class="input-box">
+        <label for="input-option">Select Input Option:</label>
+        <select id="input-option">
+          <option value="date">Date and Pregnancy Week/Day</option>
+          <option value="last-period">Last Period Date</option>
+          <option value="due-date">Due Date</option>
+        </select>
 
-        <label for="week-input">Week of Pregnancy:</label>
-        <input type="number" id="week-input" min="1" required />
+        <div id="date-input-fields" class="input-fields">
+          <label for="date-input">Date:</label>
+          <input type="date" id="date-input">
+          <label for="week-input">Pregnancy Week:</label>
+          <input type="number" id="week-input">
+          <label for="day-input">Pregnancy Day:</label>
+          <input type="number" id="day-input">
+        </div>
 
-        <label for="day-input">Day of Pregnancy:</label>
-        <input type="number" id="day-input" min="1" max="7" required />
+        <div id="last-period-input-fields" class="input-fields">
+          <label for="last-period-input">Last Period Date:</label>
+          <input type="date" id="last-period-input">
+        </div>
+
+        <div id="due-date-input-fields" class="input-fields">
+          <label for="due-date-input">Due Date:</label>
+          <input type="date" id="due-date-input">
+        </div>
 
         <label for="resolution-select">Length of Events:</label>
         <select id="resolution-select">
-            <option value="day">Day</option>
-            <option value="week">Week</option>
+          <option value="week">Week</option>
+          <option value="day">Day</option>
         </select>
 
         <button id="display-button">Display Calendar</button>
-    </div>
+      </div>
+
 
     <div id="calendar"></div>
 </body>
