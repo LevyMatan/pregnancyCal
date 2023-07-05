@@ -1,36 +1,3 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  padding-top: 50px;
-}
-
-.container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-h1 {
-  text-align: center;
-}
-
-#parameters {
-  margin-bottom: 20px;
-}
-
-#parameters div {
-  margin-bottom: 10px;
-}
-
-#calendar {
-  text-align: center;
-}
-
-button {
-  display: block;
-  margin-top: 10px;
-}
-
-input[type="number"] {
-  width: 50px;
+.input-fields {
+  display: none;
 }
