@@ -12,9 +12,13 @@
     <script src="script.js"></script>
 </head>
 <body>
-    <h1>Pregnancy Progress Calendar</h1>
 
-    <div class="input-box">
+ <div class="container">
+  <h1 class="display-4 fw-bold text-center mb-4">Pregnancy Calendar Helper</h1>
+
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="input-box">
         <label for="input-option" class="form-label">Select Input Option:</label>
         <select id="input-option" class="form-select">
           <option disabled selected>Select an Option</option>
@@ -48,11 +52,11 @@
           <option value="day">Day</option>
         </select>
 
-        <button id="display-button" class="btn btn-primary" disabled>Display Calendar</button>
+        <button id="display-button" class="btn btn-primary my-3" disabled>Display Calendar</button>
       </div>
-
-
-
+    </div>
+  </div>
+</div>
 
     <div id="calendar"></div>
 </body>
