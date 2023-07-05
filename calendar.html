@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pregnancy Progress Calendar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Pregnancy Progress Calendar</h1>
+
+    <div id="form-container">
+        <label for="date-input">Date:</label>
+        <input type="date" id="date-input" required />
+
+        <label for="week-input">Week of Pregnancy:</label>
+        <input type="number" id="week-input" min="1" required />
+
+        <label for="day-input">Day of Pregnancy:</label>
+        <input type="number" id="day-input" min="1" max="7" required />
+
+        <label for="resolution-select">Length of Events:</label>
+        <select id="resolution-select">
+            <option value="day">Day</option>
+            <option value="week">Week</option>
+        </select>
+
+        <button id="display-button">Display Calendar</button>
+    </div>
+
+    <div id="calendar"></div>
+</body>
+</html>
