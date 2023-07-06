@@ -9,8 +9,25 @@ All you have to do is to enter a known date with its matching week and day progr
 
 ## How the WebApp Works
 
-The WebApp is build using HTML, CSS and JavaScript. It uses the [ics](https://) library to display the calendar and [FileSaver.js](https://)
-to download the iCal file.
+The WebApp is build using HTML, CSS and JavaScript.
+The basic structure of the WebApp is as follows:
+
+- index.html - the main page of the WebApp.
+- style.css - the style sheet of the WebApp.
+- script.js - the script of the WebApp, responsible for the interface and the logic.
+- pregnancyProgressCalculatorLib.js - a library that calculates the pregnancy progress based on the entered week and day.
+
+It uses the following libs:
+
+- [FullCalendar](https://fullcalendar.io/): Used to display the calendar.
+- [ics](https://github.com/nwcell/ics.js): Used to create the iCal file.
+- [FileSaver.js](https://github.com/eligrey/FileSaver.js/): Used to save the iCal file.
+
+### pregnancyProgressCalculatorLib
+
+The pregnancyProgressCalculatorLib is a library that calculates the pregnancy progress.
+The main function is 'calculatePregnancyEvents'. It receives the starting day of the pregnancy and returns an array of events.
+To support this function there are three other time convereion functions:
 
 ## Want to modify the WebApp?
 
