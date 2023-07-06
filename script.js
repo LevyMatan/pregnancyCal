@@ -61,26 +61,33 @@ $(document).ready(function() {
       }
     });
 
+    function getStartDateAndResolution() {
+        const inputOption = $('#input-option').val();
+        const resolution = $('#resolution-select').val();
+
+        let startDate;
+        if (inputOption === 'date') {
+            const date = $('#date-input').val();
+            const weekOfPregnancy = parseInt($('#week-input').val());
+            const dayOfPregnancy = parseInt($('#day-input').val());
+            startDate = calculateStartDate(date, weekOfPregnancy, dayOfPregnancy);
+        } else if (inputOption === 'last-period') {
+            const lastPeriodDate = $('#last-period-input').val();
+            startDate = calculateStartDateFromLastPeriodDate(lastPeriodDate);
+        } else if (inputOption === 'due-date') {
+            const dueDate = $('#due-date-input').val();
+            startDate = calculateStartDateFromDueDate(dueDate);
+        }
+
+        return {startDate, resolution};
+    }
+
     // Event listener for display button
     $('#display-button').click(function() {
-      const inputOption = $('#input-option').val();
-      const resolution = $('#resolution-select').val();
-
-      let startDate;
-      if (inputOption === 'date') {
-        const date = $('#date-input').val();
-        const weekOfPregnancy = parseInt($('#week-input').val());
-        const dayOfPregnancy = parseInt($('#day-input').val());
-        startDate = calculateStartDate(date, weekOfPregnancy, dayOfPregnancy);
-      } else if (inputOption === 'last-period') {
-        const lastPeriodDate = $('#last-period-input').val();
-        startDate = calculateStartDateFromLastPeriodDate(lastPeriodDate);
-      } else if (inputOption === 'due-date') {
-        const dueDate = $('#due-date-input').val();
-        startDate = calculateStartDateFromDueDate(dueDate);
-      }
-
-      const events = calculatePregnancyEvents(startDate, resolution);
+        const input = getStartDateAndResolution();
+        const startDate = input.startDate;
+        const resolution = input.resolution;
+        const events = calculatePregnancyEvents(startDate, resolution);
 
         $('#calendar').fullCalendar('destroy');
         $('#calendar').fullCalendar({
@@ -94,22 +101,12 @@ $(document).ready(function() {
 
     // Function to generate the iCal file
     function generateICalFile() {
+        // Get the start date and resolution
+        const input = getStartDateAndResolution();
+        const startDate = input.startDate;
+        const resolution = input.resolution;
         // Generate the iCal content
-        const iCalContent = generateICalContent();
-
-        // Create a Blob object with the iCal content
-        const blob = new Blob([iCalContent], { type: 'text/calendar' });
-
-        // Create a temporary link element
-        const link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-
-        // Set the link attributes for downloading the iCal file
-        link.download = 'calendar.ics';
-        link.target = '_blank';
-
-        // Programmatically trigger the click event to download the iCal file
-        link.click();
+        const iCalContent = generateICalContent(startDate, resolution);
     }
     // Event listener for the "Download iCal" button
     $('#download-ical-button').click(function() {

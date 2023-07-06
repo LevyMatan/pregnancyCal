@@ -1,4 +1,3 @@
-
 function calculateStartDateFromDueDate(dueDate) {
     return moment(dueDate).subtract(40, 'weeks');
 }
@@ -56,31 +55,22 @@ function calculatePregnancyEvents(startDate, resolution) {
     return events;
 }
 
-// Function to generate the iCal content
+
 function generateICalContent(startDate, resolution) {
     const events = calculatePregnancyEvents(startDate, resolution);
-
-    let iCalContent = `BEGIN:VCALENDAR
-    VERSION:2.0`;
+    const cal = ics();
 
     events.forEach((event, index) => {
-        const start = event.start.toISOString().replace(/-|:|\.\d+/g, '');
-        const end = event.end.toISOString().replace(/-|:|\.\d+/g, '');
+      const start = moment(event.start).format('MM/DD/YYYY');
+      const end = moment(event.end).format('MM/DD/YYYY');
 
-        iCalContent += `
-    BEGIN:VEVENT
-    UID:${index + 1}
-    SUMMARY:${event.title}
-    DTSTART;VALUE=DATE:${start}
-    DTEND;VALUE=DATE:${end}
-    END:VEVENT`;
+      cal.addEvent(event.title, '', '', start, end);
     });
 
-    iCalContent += `
-    END:VCALENDAR`;
-
-    return iCalContent;
+    return cal.download("Pregnancy Progress Calendar");
 }
+
+
 
 // Export the object
 export {    calculateStartDateFromDueDate,
