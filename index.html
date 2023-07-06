@@ -9,6 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <script type="module" src="pregnancyProgressCalculatorLib.js"></script>
     <script type="module" src="script.js"></script>
 </head>
 <body>
@@ -52,7 +53,11 @@
           <option value="day">Day</option>
         </select>
 
-        <button id="display-button" class="btn btn-primary my-3" disabled>Display Calendar</button>
+        <div class="text-center">
+          <button id="display-button" class="btn btn-primary my-3 me-5" disabled>Display Calendar</button>
+          <button id="download-ical-button" class="btn btn-primary my-3 ms-5" disabled>Download iCal</button>
+        </div>
+
       </div>
     </div>
   </div>

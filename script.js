@@ -1,5 +1,10 @@
-import PregnancyProgressCalculator from './pregnancyProgressCalculatorLib.js';
-
+import {    calculateStartDateFromDueDate,
+            calculateStartDateFromLastPeriodDate,
+            calculateStartDate,
+            calculatePregnancyEvents,
+            generateICalContent
+        }
+        from './pregnancyProgressCalculatorLib.js';
 
 $(document).ready(function() {
 
@@ -49,11 +54,14 @@ $(document).ready(function() {
     $('.input-fields input').on('input', function() {
       if (validateInputs()) {
         $('#display-button').prop('disabled', false); // Enable the display button
+        $('#download-ical-button').prop('disabled', false); // Enable the display button
       } else {
         $('#display-button').prop('disabled', true); // Disable the display button
+        $('#download-ical-button').prop('disabled', true); // Disable the display button
       }
     });
 
+    // Event listener for display button
     $('#display-button').click(function() {
       const inputOption = $('#input-option').val();
       const resolution = $('#resolution-select').val();
@@ -63,16 +71,16 @@ $(document).ready(function() {
         const date = $('#date-input').val();
         const weekOfPregnancy = parseInt($('#week-input').val());
         const dayOfPregnancy = parseInt($('#day-input').val());
-        startDate = PregnancyProgressCalculator.calculateStartDate(date, weekOfPregnancy, dayOfPregnancy);
+        startDate = calculateStartDate(date, weekOfPregnancy, dayOfPregnancy);
       } else if (inputOption === 'last-period') {
         const lastPeriodDate = $('#last-period-input').val();
-        startDate = PregnancyProgressCalculator.calculateStartDateFromLastPeriodDate(lastPeriodDate);
+        startDate = calculateStartDateFromLastPeriodDate(lastPeriodDate);
       } else if (inputOption === 'due-date') {
         const dueDate = $('#due-date-input').val();
-        startDate = PregnancyProgressCalculator.calculateStartDateFromDueDate(dueDate);
+        startDate = calculateStartDateFromDueDate(dueDate);
       }
 
-      const events = PregnancyProgressCalculator.calculatePregnancyEvents(startDate, resolution);
+      const events = calculatePregnancyEvents(startDate, resolution);
 
         $('#calendar').fullCalendar('destroy');
         $('#calendar').fullCalendar({
@@ -82,5 +90,29 @@ $(document).ready(function() {
             eventLimit: true,
             events: events
         });
+    });
+
+    // Function to generate the iCal file
+    function generateICalFile() {
+        // Generate the iCal content
+        const iCalContent = generateICalContent();
+
+        // Create a Blob object with the iCal content
+        const blob = new Blob([iCalContent], { type: 'text/calendar' });
+
+        // Create a temporary link element
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+
+        // Set the link attributes for downloading the iCal file
+        link.download = 'calendar.ics';
+        link.target = '_blank';
+
+        // Programmatically trigger the click event to download the iCal file
+        link.click();
+    }
+    // Event listener for the "Download iCal" button
+    $('#download-ical-button').click(function() {
+        generateICalFile();
     });
 });
