@@ -18,48 +18,64 @@
 
  <div class="container">
   <h1 class="display-4 fw-bold text-center mb-4">Pregnancy Calendar Helper</h1>
-
   <div class="row justify-content-center">
     <div class="col-lg-6">
-      <div class="input-box">
-        <label for="input-option" class="form-label">Select Input Option:</label>
-        <select id="input-option" class="form-select">
-          <option disabled selected>Select an Option</option>
-          <option value="date">Date and Pregnancy Week/Day</option>
-          <option value="last-period">Last Period Date</option>
-          <option value="due-date">Due Date</option>
-        </select>
 
-        <div id="date-input-fields" class="input-fields">
-          <label for="date-input" class="form-label">Date:</label>
-          <input type="date" id="date-input" class="form-control">
-          <label for="week-input" class="form-label">Pregnancy Week:</label>
-          <input type="number" id="week-input" class="form-control">
-          <label for="day-input" class="form-label">Pregnancy Day:</label>
-          <input type="number" id="day-input" class="form-control">
+      <div class="instructions-container" id="input-section">
+
+        <div class="about-the-page">
+          <p>Here you can look at the pregnancy progress in weeks and days and save the calendar to be imported by Google Calendar or iCalendar or Outlook</p>
         </div>
 
-        <div id="last-period-input-fields" class="input-fields">
-          <label for="last-period-input" class="form-label">Last Period Date:</label>
-          <input type="date" id="last-period-input" class="form-control">
+        <div class="instructions">
+          <p>Please enter the required information to generate the pregnancy progress calendar:</p>
+          <ul>
+            <li>For the "Date" option, enter a known date and the corresponding week and day progress of the pregnancy.</li>
+            <li>For the "Last Period" option, enter the date of the last menstrual period.</li>
+            <li>For the "Due Date" option, enter the expected due date of the pregnancy.</li>
+          </ul>
         </div>
 
-        <div id="due-date-input-fields" class="input-fields">
-          <label for="due-date-input" class="form-label">Due Date:</label>
-          <input type="date" id="due-date-input" class="form-control">
+        <div class="input-box">
+          <label for="input-option" class="form-label">Select Input Option:</label>
+          <select id="input-option" class="form-select">
+            <option disabled selected>Select an Option</option>
+            <option value="date">Date and Pregnancy Week/Day</option>
+            <option value="last-period">Last Period Date</option>
+            <option value="due-date">Due Date</option>
+          </select>
+
+          <div id="date-input-fields" class="input-fields">
+            <label for="date-input" class="form-label">Date:</label>
+            <input type="date" id="date-input" class="form-control">
+            <label for="week-input" class="form-label">Pregnancy Week:</label>
+            <input type="number" id="week-input" class="form-control">
+            <label for="day-input" class="form-label">Pregnancy Day:</label>
+            <input type="number" id="day-input" class="form-control">
+          </div>
+
+          <div id="last-period-input-fields" class="input-fields">
+            <label for="last-period-input" class="form-label">Last Period Date:</label>
+            <input type="date" id="last-period-input" class="form-control">
+          </div>
+
+          <div id="due-date-input-fields" class="input-fields">
+            <label for="due-date-input" class="form-label">Due Date:</label>
+            <input type="date" id="due-date-input" class="form-control">
+          </div>
+
+          <label for="resolution-select" class="form-label">Length of Events:</label>
+          <select id="resolution-select" class="form-select">
+            <option value="week">Week</option>
+            <option value="day">Day</option>
+          </select>
+
+          <div class="text-center">
+            <button id="display-button" class="btn btn-primary my-3 me-5" disabled>Display Calendar</button>
+            <button id="download-ical-button" class="btn btn-primary my-3 ms-5" disabled>Download iCal</button>
+          </div>
+
         </div>
-
-        <label for="resolution-select" class="form-label">Length of Events:</label>
-        <select id="resolution-select" class="form-select">
-          <option value="week">Week</option>
-          <option value="day">Day</option>
-        </select>
-
-        <div class="text-center">
-          <button id="display-button" class="btn btn-primary my-3 me-5" disabled>Display Calendar</button>
-          <button id="download-ical-button" class="btn btn-primary my-3 ms-5" disabled>Download iCal</button>
-        </div>
-
       </div>
     </div>
   </div>

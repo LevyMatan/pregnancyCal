@@ -84,6 +84,8 @@ $(document).ready(function() {
 
     // Event listener for display button
     $('#display-button').click(function() {
+
+        $('#input-section').addClass('hide-instructions');
         const input = getStartDateAndResolution();
         const startDate = input.startDate;
         const resolution = input.resolution;
@@ -97,6 +99,10 @@ $(document).ready(function() {
             eventLimit: true,
             events: events
         });
+        // Scroll to the calendar section
+        $('html, body').animate({
+            scrollTop: $('#calendar').offset().top
+        }, 1000);
     });
 
     // Function to generate the iCal file

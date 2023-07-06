@@ -1,3 +1,43 @@
 .input-fields {
   display: none;
+  width: 100%;
+  font-size: 16px;
+}
+
+.instructions-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.instructions {
+  background-color: #f7f7f7;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+#input-box {
+  background-color: #f7f7f7;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.input-fields {
+  transition: all 0.5s ease;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.hide-instructions .input-fields {
+  max-height: none;
 }
