@@ -4,7 +4,7 @@ This repository contains a WebApp called Pregnancy Calendar Helper. It helps dis
 
 ## Using the WebApp
 
-You can access the WebApp at: <link_placeholder>
+You can access the WebApp at: [Pregnancy Cal](https://levymatan.github.io/pregnancyCal/)
 All you have to do is to enter a known date with its matching week and day progress of the pregnancy. The WebApp will display the calendar with the events and allow you to download an iCal file with the events.
 
 ## How the WebApp Works
