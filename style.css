@@ -10,7 +10,7 @@
   margin-bottom: 20px;
   border: 1px solid #ddd;
   border-radius: 4px;
-  font-size: 4vh;
+  font-size: 2vh;
 }
 
 .input-box {
@@ -21,14 +21,14 @@
   border-radius: 4px;
   justify-content: center;
   align-items: center;
-  font-size: 6vh;
+  font-size: 2vh;
 }
 
 .input-fields {
   transition: all 0.5s ease;
   max-height: 300px;
   overflow-y: auto;
-  font-size: 5vh;
+  font-size: 2vh;
 }
 
 .hide-instructions .input-fields {
