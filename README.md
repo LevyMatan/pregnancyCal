@@ -2,7 +2,7 @@
 
 This repository contains a modern, user-friendly WebApp called **Pregnancy Calendar Helper**. It helps expecting parents generate and visualize a pregnancy progress calendar.
 
-![Pregnancy Calendar Helper Screenshot](https://raw.githubusercontent.com/levymatan/pregnancyCal/main/.github/screenshot.png)
+<img src="https://raw.githubusercontent.com/levymatan/pregnancyCal/main/.github/screenshot.png" alt="Pregnancy Calendar Helper Screenshot" width="400"/>
 
 ## Using the WebApp
 
