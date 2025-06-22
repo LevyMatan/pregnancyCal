@@ -83,6 +83,17 @@ function calculatePregnancyEvents(startDate, resolution, weeks = 40) {
     }
   }
 
+  // Add a special event for the due date
+  const dueDate = startDate.clone().add(40, 'weeks').subtract(1, 'day');
+  events.push({
+    title: 'Expected Due Date',
+    start: dueDate.format('YYYY-MM-DD'),
+    allDay: true,
+    backgroundColor: '#28a745', // A distinct green color
+    borderColor: '#28a745',
+    textColor: '#ffffff'
+  });
+
   return events;
 }
 
