@@ -19,7 +19,7 @@ function calculateStartDateFromDueDate(dueDate) {
  * @returns {moment} - The calculated start date.
  */
 function calculateStartDateFromLastPeriodDate(lastPeriodDate) {
-  return moment(lastPeriodDate).add(1, 'day');
+  return moment(lastPeriodDate);
 }
 
 /**
@@ -30,7 +30,8 @@ function calculateStartDateFromLastPeriodDate(lastPeriodDate) {
  * @returns {moment} - The calculated start date.
  */
 function calculateStartDate(date, weekOfPregnancy, dayOfPregnancy) {
-  return moment(date).subtract(weekOfPregnancy - 1, 'weeks').subtract(dayOfPregnancy - 1, 'days');
+  const daysToSubtract = (weekOfPregnancy - 1) * 7 + (dayOfPregnancy - 1);
+  return moment(date).subtract(daysToSubtract, 'days');
 }
 
 /**
@@ -90,7 +91,7 @@ function calculatePregnancyEvents(startDate, resolution) {
  * @param {string} resolution - The resolution of the events ('day' or 'week').
  * @returns {string} - TheiCal content in string format.
  */
-function generateICalContent(startDate, resolution) {
+function generateICal(startDate, resolution) {
   const events = calculatePregnancyEvents(startDate, resolution);
   const cal = ics();
 
@@ -101,7 +102,7 @@ function generateICalContent(startDate, resolution) {
     cal.addEvent(event.title, '', '', start, end);
   });
 
-  return cal.download("Pregnancy Progress Calendar");
+  return cal;
 }
 
 // Export the functions as a module
@@ -110,5 +111,5 @@ export {
   calculateStartDateFromLastPeriodDate,
   calculateStartDate,
   calculatePregnancyEvents,
-  generateICalContent
+  generateICal
 };

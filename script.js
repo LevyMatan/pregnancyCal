@@ -2,7 +2,7 @@ import {    calculateStartDateFromDueDate,
             calculateStartDateFromLastPeriodDate,
             calculateStartDate,
             calculatePregnancyEvents,
-            generateICalContent
+            generateICal
         }
         from './pregnancyProgressCalculatorLib.js';
 
@@ -105,17 +105,15 @@ $(document).ready(function() {
         }, 1000);
     });
 
-    // Function to generate the iCal file
-    function generateICalFile() {
+    // Event listener for the "Download iCal" button
+    $('#download-ical-button').click(function() {
         // Get the start date and resolution
         const input = getStartDateAndResolution();
         const startDate = input.startDate;
         const resolution = input.resolution;
-        // Generate the iCal content
-        const iCalContent = generateICalContent(startDate, resolution);
-    }
-    // Event listener for the "Download iCal" button
-    $('#download-ical-button').click(function() {
-        generateICalFile();
+        // Generate the iCal object
+        const cal = generateICal(startDate, resolution);
+        // Download the iCal file
+        cal.download("Pregnancy Progress Calendar");
     });
 });

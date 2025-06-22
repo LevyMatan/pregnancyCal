@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pregnancy Progress Calculator Tests</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/9.2.2/mocha.min.css" />
+    <style>
+        #mocha {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="mocha"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/9.2.2/mocha.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.6/chai.min.js"></script>
+    <script src="ics.js"></script>
+
+    <script type="module">
+        mocha.setup('bdd');
+        window.expect = chai.expect;
+        import('./tests.js').then(() => {
+            mocha.run();
+        });
+    </script>
+</body>
+</html> 
