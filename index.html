@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Pregnancy Progress Calendar</title>
+    <title>Pregnancy Calendar Helper</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A simple web app to generate a pregnancy progress calendar based on a known date, last period, or due date.">
+    <meta name="keywords" content="pregnancy, calendar, calculator, due date, iCal, web app">
+    <meta name="author" content="Matan Levy">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://levymatan.github.io/pregnancyCal/">
+    <meta property="og:title" content="Pregnancy Calendar Helper">
+    <meta property="og:description" content="A simple web app to generate a pregnancy progress calendar.">
+    <meta property="og:image" content="https://levymatan.github.io/pregnancyCal/favicon.svg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://levymatan.github.io/pregnancyCal/">
+    <meta property="twitter:title" content="Pregnancy Calendar Helper">
+    <meta property="twitter:description" content="A simple web app to generate a pregnancy progress calendar.">
+    <meta property="twitter:image" content="https://levymatan.github.io/pregnancyCal/favicon.svg">
+
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <link rel="stylesheet" href="style.css" />
@@ -70,9 +90,9 @@
 
         </div>
 
-          <div class="text-center">
-            <button id="display-button" class="btn btn-primary my-3 me-5" disabled>Display Calendar</button>
-            <button id="download-ical-button" class="btn btn-primary my-3 ms-5" disabled>Download iCal</button>
+          <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center">
+            <button id="display-button" class="btn btn-primary m-2" disabled>Display Calendar</button>
+            <button id="download-ical-button" class="btn btn-primary m-2" disabled>Download iCal</button>
           </div>
 
       </div>
