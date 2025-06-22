@@ -38,13 +38,14 @@ function calculateStartDate(date, weekOfPregnancy, dayOfPregnancy) {
  * Calculates the pregnancy events based on the start date and resolution.
  * @param {moment} startDate - The start date of the pregnancy.
  * @param {string} resolution - The resolution of the events ('day' or 'week').
+ * @param {number} [weeks=40] - The total number of weeks to generate events for.
  * @returns {Array} - An array of pregnancy events.
  */
-function calculatePregnancyEvents(startDate, resolution) {
+function calculatePregnancyEvents(startDate, resolution, weeks = 40) {
   const currentDate = moment();
   const events = [];
 
-  for (let i = 1; i <= 40; i++) {
+  for (let i = 1; i <= weeks; i++) {
     let eventStart, eventEnd;
 
     if (resolution === 'day') {

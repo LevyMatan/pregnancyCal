@@ -1,0 +1,6 @@
+# macOS
+.DS_Store
+
+# Local test files
+test.html
+tests.js 

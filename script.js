@@ -24,15 +24,30 @@ $(document).ready(function() {
     // Function to check if all required input fields are filled
     function validateInputs() {
       const inputOption = $('#input-option').val();
+      const errorDiv = $('#date-validation-error');
+      errorDiv.text(''); // Clear previous errors
 
       if (inputOption === 'date') {
         const date = $('#date-input').val();
         const weekOfPregnancy = parseInt($('#week-input').val());
         const dayOfPregnancy = parseInt($('#day-input').val());
 
-        if (date && weekOfPregnancy && dayOfPregnancy) {
-          return true;
+        if (!date || isNaN(weekOfPregnancy) || isNaN(dayOfPregnancy)) {
+            return false;
         }
+
+        if (weekOfPregnancy < 1 || weekOfPregnancy > 42) {
+            errorDiv.text('Please enter a week between 1 and 42.');
+            return false;
+        }
+
+        if (dayOfPregnancy < 1 || dayOfPregnancy > 7) {
+            errorDiv.text('Please enter a day between 1 and 7.');
+            return false;
+        }
+
+        return true;
+
       } else if (inputOption === 'last-period') {
         const lastPeriodDate = $('#last-period-input').val();
 
@@ -89,7 +104,7 @@ $(document).ready(function() {
         const input = getStartDateAndResolution();
         const startDate = input.startDate;
         const resolution = input.resolution;
-        const events = calculatePregnancyEvents(startDate, resolution);
+        const events = calculatePregnancyEvents(startDate, resolution, 42);
 
         $('#calendar').fullCalendar('destroy');
         $('#calendar').fullCalendar({
