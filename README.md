@@ -25,6 +25,44 @@ Once the information is entered, the app will display a comprehensive calendar t
 *   **Responsive Design**: A clean, modern interface that works beautifully on both desktop and mobile devices.
 *   **Input Validation**: Ensures the data you enter is sensible to prevent errors.
 
+## Importing the Downloaded Calendar
+
+After downloading the iCal (.ics) file, you can import it into your favorite calendar application. Here are the general steps for popular calendar clients:
+
+### Google Calendar
+1.  Open [Google Calendar](https://calendar.google.com) on a computer.
+2.  In the top right, click **Settings** (gear icon) and then **Settings**.
+3.  In the menu on the left, click **Import & Export**.
+4.  Click **Select file from your computer** and select the downloaded `.ics` file.
+5.  Choose the calendar you want to add the events to.
+6.  Click **Import**.
+
+### Apple Calendar (on macOS)
+1.  Open the **Calendar** app on your Mac.
+2.  Go to the **File** menu and select **Import**.
+3.  Choose the downloaded `.ics` file and click **Import**.
+4.  Select the calendar to which you want to add the events.
+
+### Apple Calendar (on iPhone)
+There are a few ways to import an `.ics` file on an iPhone:
+*   **Direct Import**: After downloading the file in Safari, you may be prompted to add the events directly to your calendar.
+*   **From the Files App**:
+    1.  Download the `.ics` file and save it to the **Files** app (e.g., in the "Downloads" folder).
+    2.  Open the **Files** app and locate the `.ics` file.
+    3.  Tap on the file. The Calendar app should open and prompt you to add the events.
+*   **Mail App Workaround**: If the above methods don't work, email the `.ics` file to yourself. Open the email in the Apple **Mail** app, tap the attachment, and you will be prompted to add the events to your calendar.
+
+### Microsoft Outlook (on Windows)
+1.  Open **Outlook**.
+2.  Go to **File** > **Open & Export** > **Import/Export**.
+3.  Select **Import an iCalendar (.ics) or vCalendar file (.vcs)** and click **Next**.
+4.  Browse for the downloaded `.ics` file and click **OK**.
+5.  Click **Open as New** or **Import**.
+
+### Microsoft Outlook (on macOS)
+1.  Open **Outlook**.
+2.  Drag and drop the downloaded `.ics` file directly onto the Outlook Calendar grid.
+
 ## Technical Stack
 
 The WebApp is built with standard web technologies:

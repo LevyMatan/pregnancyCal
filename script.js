@@ -127,8 +127,17 @@ $(document).ready(function() {
         const startDate = input.startDate;
         const resolution = input.resolution;
         // Generate the iCal object
-        const cal = generateICal(startDate, resolution);
-        // Download the iCal file
-        cal.download("Pregnancy Progress Calendar");
+        const cal = generateICal(startDate, resolution, 42);
+
+        const calendarData = cal.calendar();
+        const blob = new Blob([calendarData], { type: 'text/calendar;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+
+        const link = document.createElement('a');
+        link.href = url;
+        link.setAttribute('download', 'Pregnancy Progress Calendar.ics');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
     });
 });

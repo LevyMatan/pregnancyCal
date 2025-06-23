@@ -85,9 +85,11 @@ function calculatePregnancyEvents(startDate, resolution, weeks = 40) {
 
   // Add a special event for the due date
   const dueDate = startDate.clone().add(40, 'weeks').subtract(1, 'day');
+  const dueDateEnd = dueDate.clone().add(1, 'days');
   events.push({
     title: 'Expected Due Date',
     start: dueDate.format('YYYY-MM-DD'),
+    end: dueDateEnd.format('YYYY-MM-DD'),
     allDay: true,
     backgroundColor: '#28a745', // A distinct green color
     borderColor: '#28a745',
@@ -101,10 +103,11 @@ function calculatePregnancyEvents(startDate, resolution, weeks = 40) {
  * Generates the iCal content based on the start date and resolution.
  * @param {moment} startDate - The start date of the pregnancy.
  * @param {string} resolution - The resolution of the events ('day' or 'week').
+ * @param {number} [weeks=40] - The total number of weeks to generate events for.
  * @returns {string} - TheiCal content in string format.
  */
-function generateICal(startDate, resolution) {
-  const events = calculatePregnancyEvents(startDate, resolution);
+function generateICal(startDate, resolution, weeks = 40) {
+  const events = calculatePregnancyEvents(startDate, resolution, weeks);
   const cal = ics();
 
   events.forEach((event, index) => {

@@ -17,7 +17,8 @@ var ics = function(uidDomain, prodId) {
   var calendarStart = [
     'BEGIN:VCALENDAR',
     'PRODID:' + prodId,
-    'VERSION:2.0'
+    'VERSION:2.0',
+    'X-WR-CALNAME:Pregnancy Progress Calendar'
   ].join(SEPARATOR);
   var calendarEnd = SEPARATOR + 'END:VCALENDAR';
   var BYDAY_VALUES = ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'];
@@ -135,9 +136,13 @@ var ics = function(uidDomain, prodId) {
       // Since some calendars don't add 0 second events, we need to remove time if there is none...
       var start_time = '';
       var end_time = '';
-      if (start_hours + start_minutes + start_seconds + end_hours + end_minutes + end_seconds != 0) {
+      var dt_format = ';VALUE=DATE';
+
+      // if the start and end dates have hours, minutes, and seconds, then they are not all-day events
+      if (start_date.getHours() || start_date.getMinutes() || start_date.getSeconds() || end_date.getHours() || end_date.getMinutes() || end_date.getSeconds()) {
         start_time = 'T' + start_hours + start_minutes + start_seconds;
         end_time = 'T' + end_hours + end_minutes + end_seconds;
+        dt_format = ';VALUE=DATE-TIME';
       }
       var now_time = 'T' + now_hours + now_minutes + now_seconds;
 
@@ -180,8 +185,8 @@ var ics = function(uidDomain, prodId) {
         'CLASS:PUBLIC',
         'DESCRIPTION:' + description,
         'DTSTAMP;VALUE=DATE-TIME:' + now,
-        'DTSTART;VALUE=DATE-TIME:' + start,
-        'DTEND;VALUE=DATE-TIME:' + end,
+        'DTSTART' + dt_format + ':' + start,
+        'DTEND' + dt_format + ':' + end,
         'LOCATION:' + location,
         'SUMMARY;LANGUAGE=en-us:' + subject,
         'TRANSP:TRANSPARENT',
